@@ -18,7 +18,15 @@ Rekognition 是AWS所提供的一種臉部辨識服務, 除了人臉識別外, �
 
 注意: 使用帳號所在的region需與S3所在的region相同, 否則會報錯。
 
-        aws rekognition detect-labels --image "S3Object={Bucket=photo-collection,Name=photo.jpg}"
- --region us-west-2
+        aws rekognition detect-labels --image "S3Object={Bucket=photo-collection,Name=photo.jpg}" --region us-west-2
 
 如沒問題, 上述指令應可從S3抓取圖片, 並回傳分析結果。
+
+# Using AWS SDK API
+
+SDK 的API可參考 [官方文件](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html)
+
+直接引入boto3後, 指定所要使用的服務名稱。
+
+                import boto3
+                client = boto3.client('rekognition')
